@@ -3,31 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniSearch Dashboard</title>
-    <script src="omnisearch.js"></script>
+    <title>Dashboard</title>
     <style>
+        /* General body styles */
         body {
-            font-family: Helvetica, Arial, sans-serif; /* Modern, minimalist font */
-            background-image: url('background.jpg'); /* Update with your image name */
-            background-size: cover; /* Ensures the image covers the whole screen */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents repeating */
-            height: 100vh; /* Full viewport height */
-            margin: 0; /* Remove default margins */
-            display: flex; /* Flexbox for centering content */
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
+            padding: 0;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #333; /* Text color */
+            color: #fff; /* White text for contrast */
+            text-align: center;
         }
-        h1 {
-            font-size: 24px; /* Adjust font size */
-            font-weight: 300; /* Light font for a minimalist look */
-            margin: 0; /* Optional: Remove margin for tighter alignment */
+
+        /* Time and greeting styles */
+        .time {
+            font-size: 96px; /* Large font size for the time */
+            font-weight: bold;
+            margin: 0;
+        }
+        .greeting {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        /* Search bar styles */
+        .search-container {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+            border: none; /* Remove borders */
+            border-radius: 25px; /* Rounded edges */
+            padding: 15px 20px; /* Inner padding */
+            font-size: 18px; /* Font size for input */
+            color: #fff; /* White text */
+            width: 400px; /* Adjust width as needed */
+            outline: none; /* Remove focus outline */
+            text-align: left;
+        }
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.6); /* Placeholder text color */
+        }
+
+        /* Optional: Shadow for the search bar */
+        input[type="text"] {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
         }
     </style>
 </head>
 <body>
-    <h1>Everything you've ever wanted is sitting on the other side of fear</h1>
+    <!-- Time Display -->
+    <div class="time" id="time">8:56</div>
+
+    <!-- Greeting -->
+    <div class="greeting">Hello, Darling</div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" placeholder="Search...">
+    </div>
 </body>
+<script>
+    // JavaScript to dynamically update time
+    function updateTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('time').textContent = `${hours}:${minutes}`;
+    }
+    setInterval(updateTime, 1000); // Update time every second
+    updateTime(); // Initialize the time on page load
+</script>
 </html>
