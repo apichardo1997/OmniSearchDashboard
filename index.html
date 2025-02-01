@@ -5,57 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
-        /* General body styles */
         body {
             font-family: Arial, sans-serif;
-            background-image: url('background.jpg'); /* Replace with your image */
+            background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh; /* Full height of the viewport */
+            height: 100vh;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #fff; /* White text for contrast */
+            color: #fff;
             text-align: center;
         }
 
-        /* Time and greeting styles */
         .time {
-            font-size: 96px; /* Large font size for the time */
+            font-family: Arial, sans-serif;
+            font-size: 96px;
             font-weight: bold;
             margin: 0;
+            color: #fff;
         }
+
         .greeting {
             font-size: 36px;
             margin: 0;
         }
 
-        /* Search bar styles */
-        .search-container {
-            margin-top: 20px;
-        }
-        input[type="text"] {
-            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-            border: none; /* Remove borders */
-            border-radius: 25px; /* Rounded edges */
-            padding: 15px 20px; /* Inner padding */
-            font-size: 18px; /* Font size for input */
-            color: #fff; /* White text */
-            width: 400px; /* Adjust width as needed */
-            outline: none; /* Remove focus outline */
-            text-align: left;
-        }
-        input[type="text"]::placeholder {
-            color: rgba(255, 255, 255, 0.6); /* Placeholder text color */
+        h1 {
+            font-size: 12px; /* Small font size for the quote */
+            font-weight: 300; /* Optional: Lighter font weight */
+            margin: 20px 0 0 0; /* Adjust margins */
+            line-height: 1.4; /* Adjust spacing between lines */
         }
 
-        /* Optional: Shadow for the search bar */
         input[type="text"] {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 25px;
+            padding: 15px 20px;
+            font-size: 18px;
+            color: #fff;
+            width: 400px;
+            outline: none;
+            text-align: left;
+        }
+
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
     </style>
 </head>
@@ -64,22 +64,26 @@
     <div class="time" id="time">8:56</div>
 
     <!-- Greeting -->
-    <div class="greeting">Hello, Darling</div>
+    <div class="greeting">Hello, Pax</div>
+
+    <!-- Quote -->
+    <h1>Everything you've ever wanted is sitting on the other side of fear</h1>
 
     <!-- Search Bar -->
     <div class="search-container">
         <input type="text" placeholder="Search...">
     </div>
+
+    <script>
+        // JavaScript to dynamically update the time
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('time').textContent = `${hours}:${minutes}`;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 </body>
-<script>
-    // JavaScript to dynamically update time
-    function updateTime() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        document.getElementById('time').textContent = `${hours}:${minutes}`;
-    }
-    setInterval(updateTime, 1000); // Update time every second
-    updateTime(); // Initialize the time on page load
-</script>
 </html>
